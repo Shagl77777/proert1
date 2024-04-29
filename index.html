@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Музыкальный сайт</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #edeef3;
+}
+
+header {
+    margin-top: 10px;
+    background: rgb(204,213,219);
+    background: linear-gradient(90deg, rgba(204,213,219,1) 0%, rgba(241,237,237,1) 27%, rgba(249,249,249,1) 100%);
+    padding: 10px 0;
+    width: 100%;
+    height: 70px;
+    box-shadow: 0px 0px 4px -1px;
+
+}
+footer{
+    background: rgb(204,213,219);
+    background: linear-gradient(90deg, rgba(204,213,219,1) 0%, rgba(241,237,237,1) 27%, rgba(249,249,249,1) 100%);
+    padding: 10px 0;
+    width: 100%;
+    height: 70px;
+    box-shadow: 0px 0px 4px -1px;
+}
+
+svg{
+    margin-top: 20px;
+    margin-left: 34px;
+    transition: transform 0.3s ease;
+    
+}
+svg:hover{
+    transform: translateY(-7px);
+
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+/* Стили для плеера */
+.player {
+    margin-top: 20px;
+}
+
+/* Стили для аудиоплеера */
+audio {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Стили для ссылок */
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+</style>
+<body>
+    <header>
+        <div class="header">
+            <div class="container">
+                <svg width="44" height="" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 13C6 14.1046 4.88071 15 3.5 15C2.11929 15 1 14.1046 1 13C1 11.8955 2.11929 11 3.5 11C4.88071 11 6 11.8955 6 13Z" fill="black"/>
+                    <path d="M15 11C15 12.1046 13.8807 13 12.5 13C11.1193 13 10 12.1046 10 11C10 9.89546 11.1193 9.00003 12.5 9.00003C13.8807 9.00003 15 9.89546 15 11Z" fill="black"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14 11V2.00003H15V11H14ZM6 3.00003V13H5V3.00003H6Z" fill="black"/>
+                    <path d="M5 2.90502C5 2.39127 5.38929 1.9611 5.9005 1.90998L13.9005 1.10998C14.4892 1.05111 15 1.51339 15 2.10502V3.00003L5 4.00003V2.90502Z" fill="black"/>
+                    </svg>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="playlist">
+            <h2>Плейлист</h2>
+            <ul>
+                <li><img src="" alt="song"></li>
+                <li>Song 2</li>
+                <li>Song 3</li>
+            </ul>
+        </section>
+        <section class="player">
+            <h2>Плеер</h2>
+            <audio controls>
+                <source src="song1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Музыкальный сайт</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const playlist = document.querySelector('.playlist');
+    const player = document.querySelector('audio');
+
+    // Список треков
+    const tracks = [
+        { name: 'Song 1', src: 'song1.mp3' },
+        { name: 'Song 2', src: 'song2.mp3' },
+        { name: 'Song 3', src: 'song3.mp3' }
+    ];
+
+    // Добавляем треки в плейлист
+    tracks.forEach(function(track) {
+        const li = document.createElement('li');
+        li.textContent = track.name;
+        li.addEventListener('click', function() {
+            player.src = track.src;
+            player.play();
+        });
+        playlist.appendChild(li);
+    });
+});
+
+    </script>
+</body>
+</html>
+
